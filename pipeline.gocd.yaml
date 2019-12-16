@@ -27,7 +27,13 @@ pipelines:
                - exec:
                   command: ls
                - exec:
+                    working_directory: ./PyTest
                     command: docker
+                    arguments:
+                      - build
+                      - -t
+                      - test
+                      - .
                   #  command: docker build -t test .
                     # - build 
                     # - -t 
