@@ -12,13 +12,14 @@ pipelines:
         # keyword git says about type of material and url at once
         git: https://github.com/naveen-t-2094/gocd-mytest.git
         branch: master
+
     stages: # list of stages in order
       - build: # name of stage
-          fetch_materials: true
           clean_workspace: true
           jobs:
-            testStage: # name of the job
-            - exec: # indicates type of task
-            command: ls
-        # shorthand for script-executor plugin
-        - script: ./build.sh
+            testJob: # name of the job
+              tasks: # ordered list of tasks to execute in job csharp
+               - exec: # indicates type of task
+                   command: ls
+               # shorthand for script-executor plugin
+               - script: ./build.sh ci
