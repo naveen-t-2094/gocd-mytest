@@ -16,10 +16,13 @@ pipelines:
     stages: # list of stages in order
       - build: # name of stage
           clean_workspace: true
+          fetch_materials: true
           jobs:
             testJob: # name of the job
               tasks: # ordered list of tasks to execute in job csharp
                - exec: # indicates type of task
                    command: ls
+               - exec: # indicates type of task
+                   command: docker build
                # shorthand for script-executor plugin
-               - script: ./build.sh ci
+              #  - script: ./build.sh ci
