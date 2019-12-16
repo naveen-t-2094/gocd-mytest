@@ -20,5 +20,4 @@ pipelines:
               tasks: # ordered list of tasks to execute in job csharp
                - exec: # indicates type of task
                    command: ls
-              -scripts:
-                    ./view.sh
+               - scripts: ./view.sh
