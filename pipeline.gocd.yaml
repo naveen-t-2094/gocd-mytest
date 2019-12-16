@@ -1,18 +1,8 @@
 #ci.gocd.yaml
 format_version: 3
-environments:
-  testing:
-    environment_variables:
-      DEPLOYMENT: testing
-    secure_variables:
-      ENV_PASSWORD: "s&Du#@$xsSa"
-    pipelines:
-      - example-deploy-testing
-      - build-testing
 pipelines:
   mypipe1: # definition of mypipe1 pipeline
     group: mygroup # note that the group name can contain only of alphanumeric & underscore characters
-    display_order: 10
     label_template: "${mygit[:8]}"
     lock_behavior: none
     parameters: # list of parameters that can be configured for a pipeline
