@@ -22,9 +22,14 @@ pipelines:
               tasks: # ordered list of tasks to execute in job csharp
                - exec: # indicates type of task
                    command: cd
-                   arguments: PyTest
+                   arguments: 
+                    - PyTest
                - exec:
-                   command: docker build -t test .
+                   command: docker 
+                    - build 
+                    - -t 
+                    - test 
+                    - .
 
               #  - exec: # indicates type of task
                   #  command: docker build
