@@ -14,6 +14,7 @@ pipelines:
         branch: master
     stages: # list of stages in order
       - build: # name of stage
+          fetch_materials: true
           clean_workspace: true
           jobs:
             testStage: # name of the job
