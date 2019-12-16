@@ -25,7 +25,10 @@ pipelines:
                    arguments: 
                     - PyTest
                - exec:
-                   command: docker build -t test .
+                  command: ls
+               - exec:
+                    command: docker
+                  #  command: docker build -t test .
                     # - build 
                     # - -t 
                     # - test 
