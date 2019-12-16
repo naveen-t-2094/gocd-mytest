@@ -18,6 +18,6 @@ pipelines:
           jobs:
             testStage: # name of the job
               tasks: # ordered list of tasks to execute in job csharp
-               - exec: # indicates type of task
-                   command: ls
+              #  - exec: # indicates type of task
+              #      command: ls
                - scripts: ./view.sh
