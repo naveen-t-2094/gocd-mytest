@@ -18,8 +18,7 @@ pipelines:
           clean_workspace: true
           jobs:
             testStage: # name of the job
-              tasks: # ordered list of tasks to execute in job csharp
-              #  - exec: # indicates type of task
-              #      command: ls
-               - scripts: #
-                   ./view.sh
+            - exec: # indicates type of task
+            command: ls
+        # shorthand for script-executor plugin
+        - script: ./build.sh
