@@ -25,11 +25,11 @@ pipelines:
                    arguments: 
                     - PyTest
                - exec:
-                   command: docker 
-                    - build 
-                    - -t 
-                    - test 
-                    - .
+                   command: docker build -t test .
+                    # - build 
+                    # - -t 
+                    # - test 
+                    # - .
 
               #  - exec: # indicates type of task
                   #  command: docker build
