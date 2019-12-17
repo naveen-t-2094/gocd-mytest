@@ -28,7 +28,7 @@ pipelines:
             running-test: # name of the job
               artifacts:
                - test:
-                   source: ./tests/test-results/
+                   source: tests/test-results/
                    destination: test-reports/
               tasks: # ordered list of tasks to execute in job csharp
                - exec: # indicates type of task
@@ -41,6 +41,8 @@ pipelines:
                      - -f
                      - ./pytest-image/Dockerfile
                      - .
+               - exec: # indicates type of task
+                   command: pwd
                - script: ./tests/test-runner.sh
 
               #  - exec:
