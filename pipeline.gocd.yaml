@@ -1,5 +1,5 @@
 #ci.gocd.yaml
-format_version: 3
+format_version: 9
 pipelines:
   mypipe1: # definition of mypipe1 pipeline
     group: mygroup # note that the group name can contain only of alphanumeric & underscore characters
@@ -20,6 +20,8 @@ pipelines:
       TEST_RESULT_DIR: ./test-results
       TEST_RESULT_FILE: testresult
       TOOLS_DIR: ./tests
+    secure_variables:
+      BASTION_HOST_PWD: AES:ZzvPWnPunQrC/fyr6ApNlw==:oA0tPpujyn5mSCwEGxw9xg==
     stages: # list of stages in order
       - tests: # name of stage
           clean_workspace: false
@@ -29,8 +31,8 @@ pipelines:
               artifacts:
                - test:
                    source: tests/test-results/
-                   destination: cruise-output
-                  #  destination: test-reports/
+                  #  destination: cruise-output
+                   destination: test-reports/
               tasks: # ordered list of tasks to execute in job csharp
                - exec: # indicates type of task
                    working_directory: ./tests
@@ -45,25 +47,7 @@ pipelines:
                - exec: # indicates type of task
                    command: pwd
                - script: ./tests/test-runner.sh
-
-              #  - exec:
-              #     command: ls
-              #  - exec:
-              #       working_directory: ./PyTest
-              #       command: docker
-              #       arguments:
-              #         - build
-              #         - -t
-              #         - pytest-bdd
-              #         - -f
-              #         - 
-                  #  command: docker build -t test .
-                    # - build 
-                    # - -t 
-                    # - test 
-                    # - .
-
-              #  - exec: # indicates type of task
-                  #  command: docker build
-               # shorthand for script-executor plugin
-              #  - script: ./build.sh ci
+            generate-comparison-report:
+              tasks: # ordered list of tasks to execute in job csharp
+               - exec: # indicates type of task
+                  command: env
