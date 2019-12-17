@@ -28,7 +28,7 @@ pipelines:
             running-test: # name of the job
               artifacts:
                - test:
-                   source: test-results/
+                   source: ./tests/test-results/
                    destination: test-reports/
               tasks: # ordered list of tasks to execute in job csharp
                - exec: # indicates type of task
