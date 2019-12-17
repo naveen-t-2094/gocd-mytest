@@ -51,4 +51,6 @@ pipelines:
             generate-comparison-report:
               tasks: # ordered list of tasks to execute in job csharp
                - exec: # indicates type of task
-                  command: env
+                  command: echo
+                  arguments:
+                    - ${BASTION_HOST_PWD}
