@@ -16,26 +16,34 @@ pipelines:
         branch: master
 
     stages: # list of stages in order
-      - build: # name of stage
+      - tests: # name of stage
           clean_workspace: false
           fetch_materials: true
           jobs:
-            testJob: # name of the job
+            running-test: # name of the job
               tasks: # ordered list of tasks to execute in job csharp
                - exec: # indicates type of task
-                   command: cd
-                   arguments: 
-                    - PyTest
-               - exec:
-                  command: ls
-               - exec:
-                    working_directory: ./PyTest
-                    command: docker
-                    arguments:
-                      - build
-                      - -t
-                      - test
-                      - .
+                   working_directory: ./tests
+                   command: docker
+                   arguments:
+                     - build
+                     - -t
+                     - pytest-bdd
+                     - -f
+                     - ./pytest-image/Dockerfile
+              - script: ./test-runner.sh
+
+              #  - exec:
+              #     command: ls
+              #  - exec:
+              #       working_directory: ./PyTest
+              #       command: docker
+              #       arguments:
+              #         - build
+              #         - -t
+              #         - pytest-bdd
+              #         - -f
+              #         - 
                   #  command: docker build -t test .
                     # - build 
                     # - -t 
