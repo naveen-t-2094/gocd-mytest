@@ -7,6 +7,8 @@ pipelines:
     lock_behavior: none
     parameters: # list of parameters that can be configured for a pipeline
       param1: value1
+    secure_variables:
+      ENV_PASSWORD: "s&Du#@$xsSa"
     materials:
       mygit: # this is the name of material, the name can contain only of alphanumeric & underscore characters
         # keyword git says about type of material and url at once
