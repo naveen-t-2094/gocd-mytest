@@ -19,7 +19,7 @@ pipelines:
       TESTS_DIR: ./tests
       TEST_RESULT_DIR: ./test-results
       TEST_RESULT_FILE: testresult
-      TOOLS_DIR: ./
+      TOOLS_DIR: ./tests
     stages: # list of stages in order
       - tests: # name of stage
           clean_workspace: false
