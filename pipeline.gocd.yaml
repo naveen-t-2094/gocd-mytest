@@ -14,13 +14,21 @@ pipelines:
         # keyword git says about type of material and url at once
         git: https://github.com/naveen-t-2094/gocd-mytest.git
         branch: master
-
+    environment_variables:
+      DOCKER_PATH: /usr/bin/path
+      TESTS_DIR: ./tests
+      TEST_RESULT_DIR: ./test-results
+      TEST_RESULT_FILE: testresult
+      TOOLS_DIR: ./
     stages: # list of stages in order
       - tests: # name of stage
           clean_workspace: false
           fetch_materials: true
           jobs:
             running-test: # name of the job
+              artifacts:
+               - test:
+                   source: test-results/
               tasks: # ordered list of tasks to execute in job csharp
                - exec: # indicates type of task
                    working_directory: ./tests
@@ -31,7 +39,8 @@ pipelines:
                      - pytest-bdd
                      - -f
                      - ./pytest-image/Dockerfile
-              - script: ./test-runner.sh
+                     - .
+               - script: ./test-runner.sh
 
               #  - exec:
               #     command: ls
