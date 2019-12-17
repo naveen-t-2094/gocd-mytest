@@ -40,7 +40,7 @@ pipelines:
                      - -f
                      - ./pytest-image/Dockerfile
                      - .
-               - script: ./test-runner.sh
+               - script: ./tests/test-runner.sh
 
               #  - exec:
               #     command: ls
