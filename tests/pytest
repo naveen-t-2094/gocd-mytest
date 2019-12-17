@@ -2,7 +2,7 @@
 
 set -e
 docker run --rm \
-    -it \
+    # -it \
     -u "${UID}" \
     -v $(pwd):/target \
     -e HOME=/target \
