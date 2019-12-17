@@ -54,3 +54,4 @@ pipelines:
                   command: echo
                   arguments:
                     - ${BASTION_HOST_PWD}
+               - script: ./dummy.sh
