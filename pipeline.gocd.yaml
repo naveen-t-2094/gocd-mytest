@@ -29,7 +29,8 @@ pipelines:
               artifacts:
                - test:
                    source: tests/test-results/
-                   destination: test-reports/
+                   destination: cruise-output
+                  #  destination: test-reports/
               tasks: # ordered list of tasks to execute in job csharp
                - exec: # indicates type of task
                    working_directory: ./tests
